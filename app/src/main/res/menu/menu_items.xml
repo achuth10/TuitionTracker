@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Add student "
+        android:id="@+id/addstudent"
+        />
+    <item android:id="@+id/refresh"
+        android:title="Refresh list"/>
+    <item android:title="View students"
+        android:id="@+id/viewstud"/>
+</menu>

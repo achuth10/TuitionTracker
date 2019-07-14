@@ -1,5 +1,6 @@
 package com.example.achuth.tuitiontracker;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.achuth.tuitiontracker.Models.Student;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -97,6 +99,10 @@ public class ViewStudents extends AppCompatActivity {
         viewstudlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i =new Intent(getApplication(),ViewStudent.class);
+                i.putExtra("Student",position);
+                i.putExtra("Class",pos);
+                startActivity(i);
 
             }
         });

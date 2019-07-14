@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewStudent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studname"
+                android:layout_margin="20dp"
+                android:textSize="30sp"
+                android:textAppearance="@style/MySerifBold"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studclasses"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/studname"
+                android:layout_margin="20dp"
+                android:textAppearance="@style/MySerifBold"
+                android:layout_marginTop="50dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studdays"
+                android:textAppearance="@style/MySerifBold"
+                android:layout_below="@id/studclasses"
+                android:layout_margin="20dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studfees"
+                android:layout_below="@id/studdays"
+                android:layout_margin="20dp"
+                android:textAppearance="@style/MySerifBold"
+                android:layout_centerHorizontal="true"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editfees"
+                android:hint="Enter fees information"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/studfees"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studstartdate"
+                android:layout_below="@id/editfees"
+                android:layout_margin="20dp"
+                android:textAppearance="@style/MySerifBold"
+                android:layout_centerHorizontal="true"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Delete"
+                android:layout_below="@id/savefeesbtn"
+                android:id="@+id/deletestud"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/savefeesbtn"
+                android:layout_below="@id/studstartdate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Save fees"
+                />
+        </RelativeLayout>
+    </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

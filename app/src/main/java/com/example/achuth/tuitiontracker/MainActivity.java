@@ -13,9 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.achuth.tuitiontracker.Models.Student;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -33,10 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     Gson gson;
-    private ArrayList<Student> students;
+    private ArrayList<Student> students,grade10stud,grade1stud,grade12stud;
     private ArrayList<String> classeslist;
     private StudentAdapter adapter;
     private String pos;
+    private DatabaseReference UserDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Students");
         intialise();
 
 
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         if (prevdata == null) {
             Toast.makeText(getApplicationContext(), "No student info", Toast.LENGTH_SHORT).show();
             students.clear();
-            adapter.notifyDataSetChanged();
+           // adapter.notifyDataSetChanged();
         } else {
             Type type = new TypeToken<List<Student>>() {
             }.getType();

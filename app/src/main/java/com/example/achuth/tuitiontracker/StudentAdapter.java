@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.achuth.tuitiontracker.Models.Student;
+
 import java.util.ArrayList;
 
 public class StudentAdapter extends ArrayAdapter {

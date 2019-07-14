@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "855875945392",
+    "firebase_url": "https://tuitiontracker-9d21a.firebaseio.com",
+    "project_id": "tuitiontracker-9d21a",
+    "storage_bucket": "tuitiontracker-9d21a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855875945392:android:74063f6b0311c0af",
+        "android_client_info": {
+          "package_name": "com.example.achuth.tuitiontracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855875945392-2kpu6ou6luujcqhht6dmug81c9clqbia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr8eO3EeX8tMcOIxEBaEiEY4UWzDzXdso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855875945392-2kpu6ou6luujcqhht6dmug81c9clqbia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

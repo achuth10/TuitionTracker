@@ -1,20 +1,31 @@
-package com.example.achuth.tuitiontracker;
+package com.example.achuth.tuitiontracker.Models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class Student {
     private String name,startdate,grade,fees;
     private Boolean present;
     private int num_classes;
     private ArrayList <String> days;
+    private String id;
+
     Student(String Name,Boolean present)
 {
     this.name=Name;
     this.present=present;
 }
 
-    public Student(String Name, String startDate, String fees,String grade,Boolean present) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Student(String Name, String startDate, String fees, String grade, Boolean present) {
         this.name=Name;
         this.startdate=startDate;
         this.fees=fees;

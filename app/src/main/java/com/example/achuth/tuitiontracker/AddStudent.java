@@ -1,10 +1,9 @@
 package com.example.achuth.tuitiontracker;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,30 +12,34 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.achuth.tuitiontracker.Models.Student;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
+import java.util.UUID;
 
 public class AddStudent extends AppCompatActivity  {
     private Button addstudbtn;
     private EditText date,name,fees;
     private int mYear, mMonth, mDay, mHour, mMinute;
-    String grade;
+    private String grade;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    Gson gson;
-    ArrayList<Student>  students;
+    private Gson gson;
+    private ArrayList<Student>  students;
+    private DatabaseReference UserDatabaseReference;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Students");
         Bundle extras = getIntent().getExtras();
         grade = extras.getString("Class");
 
@@ -98,8 +101,12 @@ public class AddStudent extends AppCompatActivity  {
                 {
                     Student student=new Student(name.getText().toString(),date.getText().toString(),fees.getText().toString(),grade,false);
                     students.add(student);
+                    String uniqueID = UUID.randomUUID().toString();
+                    student.setId(uniqueID);
                     editor.putString(grade,gson.toJson(students)).commit();
+                    UserDatabaseReference.child(grade).child(uniqueID).setValue(student);
                     Toast.makeText(getApplicationContext(),"Student succesfully added",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
                 }
                 else
